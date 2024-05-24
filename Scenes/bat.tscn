@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cty6oqt8kvh3g"]
+
+[ext_resource type="Script" path="res://Scripts/bat.gd" id="1_lbutk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tw8wm"]
+size = Vector2(10, 100)
+
+[node name="Bat" type="CharacterBody2D" groups=["Player"]]
+collision_mask = 4
+script = ExtResource("1_lbutk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tw8wm")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-5, -50, 5, -50, 5, 50, -5, 50)

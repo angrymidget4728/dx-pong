@@ -1,0 +1,156 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmph16y6qe8kb"]
+
+[ext_resource type="Texture2D" uid="uid://dtsvp6g3jl214" path="res://Images/arrow-sm-up-svgrepo-com.svg" id="1_fe056"]
+[ext_resource type="Texture2D" uid="uid://d1f4ywfuqc1j0" path="res://Images/arrow-sm-down-svgrepo-com.svg" id="2_kh1mk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rku1b"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="PlayUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rku1b")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="CanvasLayer/Panel/HBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="p2rb2" type="Button" parent="CanvasLayer/Panel/HBoxContainer/VBoxContainer/MarginContainer/AspectRatioContainer2"]
+visible = false
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Panel/HBoxContainer/VBoxContainer/MarginContainer/AspectRatioContainer2"]
+layout_mode = 2
+
+[node name="p2lb" type="TouchScreenButton" parent="CanvasLayer/Panel/HBoxContainer/VBoxContainer/MarginContainer/AspectRatioContainer2/Control"]
+scale = Vector2(0.185, 0.185)
+texture_normal = ExtResource("1_fe056")
+passby_press = true
+action = "P2 UpLeft"
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="CanvasLayer/Panel/HBoxContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="p2rb" type="Button" parent="CanvasLayer/Panel/HBoxContainer/VBoxContainer/MarginContainer2/AspectRatioContainer2"]
+visible = false
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/Panel/HBoxContainer/VBoxContainer/MarginContainer2/AspectRatioContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="p2rb" type="TouchScreenButton" parent="CanvasLayer/Panel/HBoxContainer/VBoxContainer/MarginContainer2/AspectRatioContainer2/Control2"]
+position = Vector2(0, -148)
+scale = Vector2(0.185, 0.185)
+texture_normal = ExtResource("2_kh1mk")
+passby_press = true
+action = "P2 DownRight"
+
+[node name="Control" type="Panel" parent="CanvasLayer/Panel/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(768, 0)
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(768, 0)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/Panel/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="CanvasLayer/Panel/HBoxContainer/VBoxContainer2/MarginContainer3"]
+layout_mode = 2
+
+[node name="p1rb" type="Button" parent="CanvasLayer/Panel/HBoxContainer/VBoxContainer2/MarginContainer3/AspectRatioContainer2"]
+visible = false
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="CanvasLayer/Panel/HBoxContainer/VBoxContainer2/MarginContainer3/AspectRatioContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="p1rb" type="TouchScreenButton" parent="CanvasLayer/Panel/HBoxContainer/VBoxContainer2/MarginContainer3/AspectRatioContainer2/Control3"]
+position = Vector2(-148, 0)
+scale = Vector2(0.185, 0.185)
+texture_normal = ExtResource("1_fe056")
+passby_press = true
+action = "P1 UpRight"
+
+[node name="MarginContainer4" type="MarginContainer" parent="CanvasLayer/Panel/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="CanvasLayer/Panel/HBoxContainer/VBoxContainer2/MarginContainer4"]
+layout_mode = 2
+
+[node name="p1lb" type="Button" parent="CanvasLayer/Panel/HBoxContainer/VBoxContainer2/MarginContainer4/AspectRatioContainer2"]
+visible = false
+layout_mode = 2
+
+[node name="Control4" type="Control" parent="CanvasLayer/Panel/HBoxContainer/VBoxContainer2/MarginContainer4/AspectRatioContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="p1lb" type="TouchScreenButton" parent="CanvasLayer/Panel/HBoxContainer/VBoxContainer2/MarginContainer4/AspectRatioContainer2/Control4"]
+position = Vector2(-148, -148)
+scale = Vector2(0.185, 0.185)
+texture_normal = ExtResource("2_kh1mk")
+passby_press = true
+action = "P1 DownLeft"

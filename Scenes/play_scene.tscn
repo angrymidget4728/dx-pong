@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://bv58c24qwqnrb"]
+
+[ext_resource type="Script" path="res://Scripts/play_scene.gd" id="1_eh4e7"]
+[ext_resource type="PackedScene" uid="uid://cty6oqt8kvh3g" path="res://Scenes/bat.tscn" id="1_i7r2i"]
+[ext_resource type="Resource" uid="uid://ccptumw48cxhp" path="res://Resources/keys/P2_Keys.tres" id="2_1ag7w"]
+[ext_resource type="Resource" uid="uid://cnwp45al7iasm" path="res://Resources/keys/P1_Keys.tres" id="3_fu32k"]
+[ext_resource type="PackedScene" uid="uid://drq6wmmic1nns" path="res://Scenes/ball.tscn" id="4_psfds"]
+[ext_resource type="PackedScene" uid="uid://cmph16y6qe8kb" path="res://Scenes/play_ui.tscn" id="6_sqnjn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vj148"]
+size = Vector2(800, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xuxx"]
+size = Vector2(40, 648)
+
+[node name="PlayScene" type="Node2D"]
+script = ExtResource("1_eh4e7")
+
+[node name="PlayUI" parent="." instance=ExtResource("6_sqnjn")]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.0509804, 0.0509804, 0.0509804, 1)
+polygon = PackedVector2Array(-384, -324, 384, -324, 384, 324, -384, 324)
+
+[node name="Barrier" type="StaticBody2D" parent="." groups=["Barrier"]]
+collision_layer = 4
+collision_mask = 3
+
+[node name="TopBound" type="CollisionShape2D" parent="Barrier"]
+position = Vector2(0, -344)
+shape = SubResource("RectangleShape2D_vj148")
+
+[node name="BottomBound" type="CollisionShape2D" parent="Barrier"]
+position = Vector2(0, 344)
+shape = SubResource("RectangleShape2D_vj148")
+
+[node name="P2Bound" type="Area2D" parent="." groups=["P2Bound"]]
+
+[node name="LeftBound" type="CollisionShape2D" parent="P2Bound"]
+position = Vector2(-404, 0)
+shape = SubResource("RectangleShape2D_1xuxx")
+
+[node name="P1Bound" type="Area2D" parent="." groups=["P1Bound"]]
+
+[node name="RightBound" type="CollisionShape2D" parent="P1Bound"]
+position = Vector2(404, 0)
+shape = SubResource("RectangleShape2D_1xuxx")
+
+[node name="P2Bar" parent="." instance=ExtResource("1_i7r2i")]
+position = Vector2(-379, 0)
+key = ExtResource("2_1ag7w")
+
+[node name="P1Bar" parent="." instance=ExtResource("1_i7r2i")]
+position = Vector2(379, 0)
+key = ExtResource("3_fu32k")
+
+[node name="Ball" parent="." instance=ExtResource("4_psfds")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="area_entered" from="Ball" to="Ball" method="_on_area_entered"]
+[connection signal="bound_collided" from="Ball" to="." method="_on_ball_bound_collided"]
